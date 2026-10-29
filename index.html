@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Swali Muhimu 😂💀</title>
+
+<style>
+• {
+box-sizing: border-box;
+}
+
+body {
+margin: 0;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 20px;
+font-family: Arial, sans-serif;
+background: linear-gradient(135deg, #17142b, #47215e, #b52c72);
+color: white;
+}
+
+.card {
+width: 100%;
+max-width: 420px;
+padding: 30px 22px;
+text-align: center;
+background: rgba(255,255,255,0.12);
+border: 1px solid rgba(255,255,255,0.25);
+border-radius: 25px;
+box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+}
+
+.emoji {
+font-size: 65px;
+margin-bottom: 12px;
+}
+
+h1 {
+font-size: 27px;
+line-height: 1.4;
+}
+
+p {
+font-size: 16px;
+line-height: 1.7;
+}
+
+.buttons {
+display: flex;
+justify-content: center;
+gap: 18px;
+margin-top: 30px;
+min-height: 55px;
+}
+
+button {
+border: none;
+padding: 15px 28px;
+border-radius: 30px;
+font-size: 17px;
+font-weight: bold;
+cursor: pointer;
+}
+
+.yes {
+color: white;
+background: #ff2678;
+box-shadow: 0 5px 18px #ff267866;
+}
+
+.no {
+color: #333;
+background: #f5f5f5;
+}
+
+.page {
+display: none;
+}
+
+.page.active {
+display: block;
+animation: pop 0.45s ease;
+}
+
+@keyframes pop {
+from {
+opacity: 0;
+transform: scale(0.85);
+}
+to {
+opacity: 1;
+transform: scale(1);
+}
+}
+
+.result {
+font-size: 19px;
+font-weight: bold;
+color: #ffe06c;
+line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<!-- SWALI LA KWANZA -->
+<section class="page active" id="page1">
+<div class="emoji">🤨🏳️‍🌈</div>
+
+<h1>Wewe ni shoga? 😂💀</h1>
+<p>Jibu kwa uaminifu tafadhali! 👀🤣</p>
+
+<div class="buttons">
+<button class="yes" onclick="nextPage(2)">NDIYO 😂</button>
+<button class="no" id="no1">HAPANA 😭</button>
+</div>
+</section>
+
+<!-- SWALI LA PILI -->
+<section class="page" id="page2">
+<div class="emoji">😳👀</div>
+
+<h1>Dah! Wazazi wako wanajua wewe ni shoga? 😂💀</h1>
+<p>Usiogope, sema ukweli! 🤣🔥</p>
+
+<div class="buttons">
+<button class="yes" onclick="nextPage(3)">NDIYO 😭</button>
+<button class="no" id="no2">HAPANA 💀</button>
+</div>
+</section>
+
+<!-- UJUMBE WA MWISHO -->
+<section class="page" id="page3">
+<div class="emoji">😭💀🤣</div>
+
+<h1>Dah, pole sana! 😂😂</h1>
+
+<p class="result">
+Hii Ubeda Watch Wa Back! 🤣💀🔥
+</p>
+
+<p>
+(YB WYB) 😭😂
+</p>
+
+<p>
+Yubeda Watch Wa Back! 💀🤣🤌
+</p>
+
+<div class="emoji">🫵🏽😂💀🔥</div>
+
+<p>Umenimaliza kwa majibu yako! 🤣🤣</p>
+</section>
+
+</div>
+
+<script>
+function nextPage(number) {
+document.querySelectorAll(".page").forEach(page => {
+page.classList.remove("active");
+});
+
+document.getElementById("page" + number).classList.add("active");
+window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// HAPANA haitakubali kubonyezwa
+function disableNo(id) {
+const button = document.getElementById(id);
+
+function move() {
+const maxX = Math.max(0, window.innerWidth - button.offsetWidth - 15);
+const maxY = Math.max(0, window.innerHeight - button.offsetHeight - 15);
+
+button.style.position = "fixed";
+button.style.left = Math.random() * maxX + "px";
+button.style.top = Math.random() * maxY + "px";
+button.style.zIndex = "10";
+}
+
+button.addEventListener("mouseenter", move);
+
+button.addEventListener("touchstart", function(event) {
+event.preventDefault();
+move();
+}, { passive: false });
+
+button.addEventListener("click", function(event) {
+event.preventDefault();
+move();
+});
+}
+
+disableNo("no1");
+disableNo("no2");
+</script>
+
+</body>
+</html>
